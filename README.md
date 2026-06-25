@@ -81,3 +81,37 @@ Data is not included in this repository due to file size. To reproduce results:
 ---
 
 ## Dependencies
+pandas
+numpy
+matplotlib
+plotly
+pytz
+
+Install with: `pip install pandas numpy matplotlib plotly pytz`
+
+---
+
+## Project Structure
+
+The notebook is structured in order:
+
+1. **Data loading and preparation** — CSV ingestion, timezone adjustment, trimming to backtest window
+2. **ORB strategy** — 4 setup variations across 3 RR ratios, buy-and-hold comparison
+3. **Liquidity reversal model** — Previous-day high/low reversal, 12 configurations
+4. **Liquidity continuation model** — Previous-day high/low continuation, 12 configurations
+5. **Statistical validation** — Sharpe ratio, Monte Carlo random-entry test, trade-order permutation test
+6. **Out-of-sample testing** — 2016–2020 holdout period, parameter recalibration investigation
+
+---
+
+## Limitations
+
+- Backtest does not account for slippage, commissions, or spread costs
+- Fixed-point SL/TP distances are not regime-invariant (demonstrated in out-of-sample section)
+- Sample covers one instrument over ~9 years — institutional standards typically require longer
+- Strategy tested in systematic/rules-based form; real discretionary traders apply additional confluences
+- Results specific to strategies tested — not a blanket conclusion about all retail trading concepts
+
+---
+
+*Full methodology, theoretical grounding (Fama EMH, Grossman-Stiglitz paradox), and detailed interpretation of all results are in the accompanying PDF report.*
